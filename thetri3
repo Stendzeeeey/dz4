@@ -1,0 +1,29 @@
+В первой строке дано число n , дальше идет кол-во n отрезков, такое, что в каждой строке 1-ый элемент - абсицисса 1, 2-ой элемент - ордината 1, 3-ий элемент - абсцисса 2, 4-ый элемент - ордината 2
+#include "pt4.h"
+#include <iostream>
+#include <fstream>
+#include <cmath>
+
+using namespace std;
+
+int Lenght(int x1, int y1, int x2, int y2) {
+	return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+}
+
+void Solve()
+{
+	Task("TheTri3");
+	int n = 0, max = -10000000, num = 0, x1 = 0, y1 = 0, x2 = 0, y2 = 0;
+	ifstream file;
+	file.open("c.otr");
+	file >> n;
+	for (int i = 1; i <= n; i++) {
+		file >> x1 >> y1 >> x2 >> y2;
+		if (Lenght(x1, y1, x2, y2) > max) {
+			num = i;
+			max = Lenght(x1, y1, x2, y2);
+		}
+	pt << num;
+	}
+	file.close();
+}
