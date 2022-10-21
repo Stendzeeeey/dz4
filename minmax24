@@ -1,0 +1,18 @@
+дано целое число n > 1 и набор из n чисел. найти наибольшую сумму двух соседних чисел.
+#include "pt4.h"
+using namespace std;
+
+void Solve()
+{
+    Task("Minmax24");
+    float r1=0, r2=0, sum=0;
+    int n, i;
+    pt >> n;
+    for (i = 1; i < n; i++);
+    r2 = r1;
+    if (i == 2)
+        sum = r2 + r1;
+    if (r1 + r2 > sum)
+        sum = r2 + r1;
+    pt << sum;
+}
