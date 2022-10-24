@@ -1,0 +1,48 @@
+даны числа x y в системе счисления 2<=p<=9. написать программу, которая складывает
+#include "pt4.h"
+using namespace std;
+
+int systrans(int x, int y, int p)
+{
+    int x_ = 0;
+    int k = 0;
+    while (x > 0)
+    {
+        x_ += x % 10 * pow(p, k);
+        k += 1;
+        x /= 10;
+    }
+
+    int y_ = 0;
+    k = 0;
+    while (y > 0)
+    {
+        y_ += y % 10 * pow(p, k);
+        k += 1;
+        y /= 10;
+    }
+    int comp_ = x_ + y_;
+    string scomp;
+    while (comp_ > 0)
+    {
+        scomp += to_string(comp_ % p);
+        comp_ /= p;
+    }
+    reverse(scomp.begin(), scomp.end());
+    return stoi(scomp);
+}
+
+void Solve()
+{
+    Task("TheTri15");
+    int x, y, p;
+    pt >> x >> y >> p;
+    if (x == 0 || y == 0)
+    {
+        pt << 0;
+    }
+    else
+    {
+        pt << systrans(x, y, p);
+    }
+}
