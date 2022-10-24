@@ -14,15 +14,16 @@ int pal(int d) {
 void Solve()
 {
     Task("TheTri7");
-    int i, a, b, g = 0;
+    int a, b;
+    int tr = 0;
     pt >> a >> b;
-    for (i = a; i <= b; a++) {
-
-        if (pal(i * i)) {
-            pt << i;
-            g++;
+    for (a; a <= b; a++)
+    {
+        if (pal(a * a))
+        {
+            pt << a;
+            tr = 1;
         }
     }
-    if (g == 0)
-        pt << "No solution";
+    if (tr == 0) pt << "No solution";
 }
