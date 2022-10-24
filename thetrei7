@@ -1,0 +1,28 @@
+найти числа из промежутка a b, которые при возведении в квадрат дают палиндром
+#include "pt4.h"
+using namespace std;
+
+int pal(int d) {
+    int k = d, f = 0;
+    while (k) {
+            f = 10 * f + k % 10;
+            k /= 10;
+        }
+    return (d == f);
+ }
+
+void Solve()
+{
+    Task("TheTri7");
+    int i, a, b, g = 0;
+    pt >> a >> b;
+    for (i = a; i <= b; a++) {
+
+        if (pal(i * i)) {
+            pt << i;
+            g++;
+        }
+    }
+    if (g == 0)
+        pt << "No solution";
+}
